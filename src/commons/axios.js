@@ -3,7 +3,9 @@ import _axios from 'axios';
 const axios = (baseURL) => {  // 可以給定 baseURL
     
     const instance = _axios.create({
-        baseURL: baseURL || 'http://localhost:3003',  // 若無 baseURL 則默認 3003
+        baseURL: 
+            baseURL || process.env.REACT_APP_API_DOMAIN || 'http://localhost:3003',  
+            // 給定baseURL 或 開發環境url 或 生產環境本地3003
         timeout: 1000
     });
 
